@@ -1,0 +1,163 @@
+/* Estilo geral */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* O container principal */
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* O "cartão" onde o conteúdo fica */
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative; /* Importante para o posicionamento dos botões */
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+    color: #e91e63;
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #333;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+p {
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Estilo dos botões de Sim/Não */
+.buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-yes {
+    background-color: #4CAF50;
+}
+
+.btn-yes:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+.btn-no {
+    background-color: #f44336;
+    position: absolute; /* Posição que permite mover com JavaScript */
+}
+
+.btn-no:hover {
+    background-color: #e53935;
+}
+
+/* Estilo do botão de música */
+.btn-music {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.btn-music:hover {
+    transform: scale(1.1);
+    background: #c2185b;
+}
+
+/* Estilo para o container do meme */
+.meme-container {
+    width: 100%;
+    margin-bottom: 25px; /* Cria um espaço legal entre o meme e o título abaixo */
+    text-align: center;
+}
+
+.meme-container img {
+    max-width: 80%; /* Faz a imagem ocupar 80% do espaço do cartão */
+    height: auto;    /* Mantém a proporção da imagem */
+    border-radius: 15px; /* Bordinha arredondada pra combinar com o layout */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15); /* Uma sombrinha pra dar destaque */
+}
+
+/* Estilo aprimorado para a galeria de fotos */
+.photo-gallery {
+    display: grid;
+    /* Cria colunas que se ajustam, com um tamanho mínimo de 150px */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.photo-item {
+    /* O container de cada foto não precisa de muito estilo aqui */
+}
+
+.photo-item img {
+    display: block; /* Melhora o alinhamento da imagem */
+    width: 100%; /* Faz a imagem ocupar 100% da largura da sua "célula" na grade */
+    
+    /* ===== A MÁGICA ACONTECE AQUI ===== */
+    aspect-ratio: 1 / 1;  /* FORÇA A IMAGEM A SER UM QUADRADO PERFEITO */
+    object-fit: cover;    /* FAZ A FOTO PREENCHER O QUADRADO SEM DISTORCER */
+    /* ================================== */
+
+    border-radius: 10px; /* Mantém as bordas arredondadas que já tínhamos */
+    border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo-item img:hover {
+    transform: scale(1.05);
+}
+
+.photo-item p {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
